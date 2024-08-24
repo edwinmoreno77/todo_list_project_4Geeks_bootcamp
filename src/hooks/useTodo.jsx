@@ -3,6 +3,7 @@ import { useState } from "react";
 export const useTodo = () => {
   const [todo, setTodo] = useState("");
   const [arrayTodo, setArrayTodo] = useState([]);
+  const [isUpdating, setIsUpdating] = useState(null);
 
   const addTodo = (e) => {
     if (e.key == "Enter" && todo !== "") {
@@ -23,5 +24,7 @@ export const useTodo = () => {
     arrayTodo,
     setTodo,
     setArrayTodo,
+    isUpdating,
+    setIsUpdating,
   };
 };

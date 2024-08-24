@@ -19,7 +19,7 @@ export const InputTodoComponent = ({ todo, arrayTodo, setTodo, addTodo }) => {
 
 InputTodoComponent.propTypes = {
   todo: PropTypes.string.isRequired,
-  arrayTodo: PropTypes.array.isRequired,
+  arrayTodo: PropTypes.arrayOf(PropTypes.string).isRequired,
   setTodo: PropTypes.func.isRequired,
   addTodo: PropTypes.func.isRequired,
 };

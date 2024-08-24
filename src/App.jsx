@@ -4,8 +4,16 @@ import { useTodo } from "./hooks/useTodo";
 import "./App.css";
 
 function App() {
-  const { addTodo, arrayTodo, deleteTodo, setArrayTodo, setTodo, todo } =
-    useTodo();
+  const {
+    addTodo,
+    arrayTodo,
+    deleteTodo,
+    setArrayTodo,
+    setTodo,
+    todo,
+    isUpdating,
+    setIsUpdating,
+  } = useTodo();
 
   return (
     <>
@@ -26,6 +34,9 @@ function App() {
                   <UlTodoComponent
                     deleteTodo={deleteTodo}
                     arrayTodo={arrayTodo}
+                    isUpdating={isUpdating}
+                    setIsUpdating={setIsUpdating}
+                    setArrayTodo={setArrayTodo}
                   />
                 </article>
                 <footer className="items">{arrayTodo.length} items</footer>
