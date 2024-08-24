@@ -4,6 +4,7 @@ export const InputTodoComponent = ({ todo, arrayTodo, setTodo, addTodo }) => {
   return (
     <input
       type="text"
+      className="inputTodo_main"
       name="todo"
       placeholder={`${
         arrayTodo.length > 0

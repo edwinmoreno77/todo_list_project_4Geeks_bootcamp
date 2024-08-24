@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export const UlTodoComponent = ({
   arrayTodo,
@@ -19,6 +21,10 @@ export const UlTodoComponent = ({
     );
 
     setArrayTodo(newArrayTodo);
+
+    if (e.key === "Enter") {
+      setIsUpdating(null);
+    }
   };
 
   return (
@@ -27,29 +33,33 @@ export const UlTodoComponent = ({
         <div key={i}>
           <div className="li_container">
             {isUpdating === i ? (
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <div className="show_span option_container">
                 <input
+                  className="input_updating"
                   type="text"
                   value={inputUpdating}
                   onChange={(e) => handleInput(e, i)}
+                  onKeyDown={(e) => handleInput(e, i)}
                 />
                 <span onClick={() => setIsUpdating(null)}>done</span>
               </div>
             ) : (
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <div className="option_container">
                 <li>
                   {i + 1} - {item}
                 </li>
-                <div>
+                <div className="show_span">
                   <span
                     onClick={() => {
                       setIsUpdating(i);
                       setInputUpdating(item);
                     }}
                   >
-                    Edit
+                    <FontAwesomeIcon icon={faEdit} />
                   </span>
-                  <span onClick={() => deleteTodo(item)}>x</span>
+                  <span onClick={() => deleteTodo(item)}>
+                    <FontAwesomeIcon icon={faTrash} />
+                  </span>
                 </div>
               </div>
             )}
