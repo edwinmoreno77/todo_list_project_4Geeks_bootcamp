@@ -112,6 +112,10 @@ input:focus {
   justify-content: space-between;
 }
 
+.option_container li span:hover {
+  color: rgb(57, 208, 241);
+}
+
 .li_container .show_span span {
   color: white;
   cursor: pointer;
@@ -160,7 +164,12 @@ input:focus {
   .li_container {
     font-size: 13px;
   }
-  span {
-    font-size: 13px;
+
+  .li_container .show_span span {
+    font-size: 8px;
+  }
+
+  .li_container .show_span span:hover {
+    font-size: 10px;
   }
 }

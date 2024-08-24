@@ -7,13 +7,13 @@ export const useTodo = () => {
 
   const addTodo = (e) => {
     if (e.key == "Enter" && todo !== "") {
-      setArrayTodo([...arrayTodo, todo]);
+      setArrayTodo([...arrayTodo, { task: todo, done: false }]);
       setTodo("");
     }
   };
 
   const deleteTodo = (todo) => {
-    const newArrayTodos = arrayTodo.filter((item) => item !== todo);
+    const newArrayTodos = arrayTodo.filter((item) => item.task !== todo.task);
     setArrayTodo(newArrayTodos);
   };
 

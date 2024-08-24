@@ -1,7 +1,12 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEdit,
+  faTrash,
+  faCircleCheck,
+  faCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
 export const UlTodoComponent = ({
   arrayTodo,
@@ -10,14 +15,15 @@ export const UlTodoComponent = ({
   setIsUpdating,
   setArrayTodo,
 }) => {
-  const [inputUpdating, setInputUpdating] = useState("");
+  const [inputUpdating, setInputUpdating] = useState({ task: "", done: false });
 
   const handleInput = (e, i) => {
     const updatedValue = e.target.value;
-    setInputUpdating(updatedValue);
+
+    setInputUpdating({ task: updatedValue, done: false });
 
     const newArrayTodo = arrayTodo.map((todo, index) =>
-      index === i ? updatedValue : todo
+      index === i ? inputUpdating : todo
     );
 
     setArrayTodo(newArrayTodo);
@@ -25,6 +31,13 @@ export const UlTodoComponent = ({
     if (e.key === "Enter") {
       setIsUpdating(null);
     }
+  };
+
+  const hanldeDoneTodo = (i) => {
+    const newArrayTodo = arrayTodo.map((todo, index) =>
+      index === i ? { ...todo, done: !todo.done } : todo
+    );
+    setArrayTodo(newArrayTodo);
   };
 
   return (
@@ -37,7 +50,7 @@ export const UlTodoComponent = ({
                 <input
                   className="input_updating"
                   type="text"
-                  value={inputUpdating}
+                  value={inputUpdating.task}
                   onChange={(e) => handleInput(e, i)}
                   onKeyDown={(e) => handleInput(e, i)}
                 />
@@ -45,8 +58,17 @@ export const UlTodoComponent = ({
               </div>
             ) : (
               <div className="option_container">
-                <li>
-                  {i + 1} - {item}
+                <li onClick={() => hanldeDoneTodo(i)}>
+                  {item.done ? (
+                    <span>
+                      <FontAwesomeIcon icon={faCircleCheck} />
+                    </span>
+                  ) : (
+                    <span>
+                      <FontAwesomeIcon icon={faCircle} />
+                    </span>
+                  )}
+                  {`  ${item.task}`}
                 </li>
                 <div className="show_span">
                   <span
@@ -72,7 +94,7 @@ export const UlTodoComponent = ({
 };
 
 UlTodoComponent.propTypes = {
-  arrayTodo: PropTypes.arrayOf(PropTypes.string).isRequired,
+  arrayTodo: PropTypes.arrayOf(PropTypes.object).isRequired,
   deleteTodo: PropTypes.func.isRequired,
   isUpdating: PropTypes.number,
   setIsUpdating: PropTypes.func.isRequired,
