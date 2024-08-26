@@ -32,17 +32,21 @@ function App() {
                 addTodo={addTodo}
                 setTodo={setTodo}
               />
-              <UlTodoComponent
-                deleteTodo={deleteTodo}
-                arrayTodo={arrayTodo}
-                isUpdating={isUpdating}
-                setIsUpdating={setIsUpdating}
-                setArrayTodo={setArrayTodo}
-                inputUpdating={inputUpdating}
-                handleTaskUpdate={handleTaskUpdate}
-                hanldeDoneTodo={hanldeDoneTodo}
-                setInputUpdating={setInputUpdating}
-              />
+              {arrayTodo.length == 0 ? (
+                <h2 className="add_task_h2">Add task</h2>
+              ) : (
+                <UlTodoComponent
+                  deleteTodo={deleteTodo}
+                  arrayTodo={arrayTodo}
+                  isUpdating={isUpdating}
+                  setIsUpdating={setIsUpdating}
+                  setArrayTodo={setArrayTodo}
+                  inputUpdating={inputUpdating}
+                  handleTaskUpdate={handleTaskUpdate}
+                  hanldeDoneTodo={hanldeDoneTodo}
+                  setInputUpdating={setInputUpdating}
+                />
+              )}
             </article>
             <footer className="items">{arrayTodo.length} items</footer>
           </section>

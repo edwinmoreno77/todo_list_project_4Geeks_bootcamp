@@ -18,6 +18,13 @@ body {
   padding: 5px;
 }
 
+.add_task_h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 65px;
+}
+
 .container_todo {
   display: flex;
   flex-direction: column;
