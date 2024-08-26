@@ -47,10 +47,10 @@ export const LiTodoComponent = ({
 };
 
 LiTodoComponent.propTypes = {
-  hanldeDoneTodo: PropTypes.func,
-  task: PropTypes.object,
-  setIsUpdating: PropTypes.func,
-  setInputUpdating: PropTypes.func,
-  deleteTodo: PropTypes.func,
-  i: PropTypes.number,
+  hanldeDoneTodo: PropTypes.func.isRequiered,
+  task: PropTypes.object.isRequiered,
+  setIsUpdating: PropTypes.func.isRequiered,
+  setInputUpdating: PropTypes.func.isRequiered,
+  deleteTodo: PropTypes.func.isRequiered,
+  i: PropTypes.number.isRequiered,
 };

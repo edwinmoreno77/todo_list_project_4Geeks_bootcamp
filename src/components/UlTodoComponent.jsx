@@ -45,11 +45,11 @@ export const UlTodoComponent = ({
 UlTodoComponent.propTypes = {
   arrayTodo: PropTypes.arrayOf(PropTypes.object).isRequired,
   deleteTodo: PropTypes.func.isRequired,
-  isUpdating: PropTypes.number,
+  isUpdating: PropTypes.number.isRequired,
   setIsUpdating: PropTypes.func.isRequired,
-  setArrayTodo: PropTypes.func,
-  inputUpdating: PropTypes.object,
-  handleTaskUpdate: PropTypes.func,
-  hanldeDoneTodo: PropTypes.func,
-  setInputUpdating: PropTypes.func,
+  setArrayTodo: PropTypes.func.isRequired,
+  inputUpdating: PropTypes.object.isRequired,
+  handleTaskUpdate: PropTypes.func.isRequired,
+  hanldeDoneTodo: PropTypes.func.isRequired,
+  setInputUpdating: PropTypes.func.isRequired,
 };

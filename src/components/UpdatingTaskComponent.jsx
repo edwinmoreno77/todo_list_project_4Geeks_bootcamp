@@ -24,5 +24,5 @@ UpdatingTaskComponent.propTypes = {
   inputUpdating: PropTypes.object.isRequired,
   handleTaskUpdate: PropTypes.func.isRequired,
   setIsUpdating: PropTypes.func.isRequired,
-  index: PropTypes.number,
+  index: PropTypes.number.isRequired,
 };
