@@ -32,7 +32,10 @@ export const LiTodoComponent = ({
       <div className="show_span">
         <span
           onClick={() => {
+            // locate by index the task that must be updated
             setIsUpdating(i);
+            // setInputUpdating is used so that the task to be
+            // updated keeps the text and does not start empty
             setInputUpdating(task);
           }}
         >
