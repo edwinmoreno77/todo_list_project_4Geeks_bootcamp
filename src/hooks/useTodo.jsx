@@ -10,13 +10,6 @@ export const useTodo = () => {
   });
 
   const addTodo = (e) => {
-    const { value, name } = e.target;
-    // Update the current task state
-    setTodo({
-      ...todo,
-      [name]: value,
-    });
-    // Add task to the list when Enter is pressed
     if (e.key == "Enter" && todo.task !== "") {
       setArrayTodo([...arrayTodo, { task: todo.task, done: false }]);
       setTodo({ task: "", done: false });

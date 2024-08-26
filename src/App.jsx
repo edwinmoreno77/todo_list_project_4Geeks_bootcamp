@@ -6,6 +6,7 @@ import "./App.css";
 function App() {
   const {
     todo,
+    setTodo,
     addTodo,
     arrayTodo,
     deleteTodo,
@@ -29,6 +30,7 @@ function App() {
                 todo={todo}
                 arrayTodo={arrayTodo}
                 addTodo={addTodo}
+                setTodo={setTodo}
               />
               <UlTodoComponent
                 deleteTodo={deleteTodo}
