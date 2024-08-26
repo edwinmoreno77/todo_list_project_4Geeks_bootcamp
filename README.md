@@ -42,9 +42,9 @@ npm run dev
 
 ### Main Screen
 
-![Main Screen](./assets/todoList_img-1.jpg)
+![Todo List Image 1](https://github.com/edwinmoreno77/todo_list_project_4Geeks_bootcamp/blob/main/src/assets/todoList_img-1.jpg?raw=true)
 
-![Task Details](./assets/todoList_img-2.jpg)
+![Todo List Image 2](https://github.com/edwinmoreno77/todo_list_project_4Geeks_bootcamp/blob/main/src/assets/todoList_img-2.jpg?raw=true)
 
 ## File Structure
 
