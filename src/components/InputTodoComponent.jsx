@@ -1,26 +1,25 @@
 import PropTypes from "prop-types";
 
-export const InputTodoComponent = ({ todo, arrayTodo, setTodo, addTodo }) => {
+export const InputTodoComponent = ({ todo, arrayTodo, addTodo }) => {
   return (
     <input
       type="text"
       className="inputTodo_main"
-      name="todo"
+      name="task"
+      value={todo.task}
       placeholder={`${
         arrayTodo.length > 0
           ? "¿What needs to be done?"
           : "No tasks, add tasks."
       } `}
-      value={todo}
-      onChange={(e) => setTodo(e.target.value)}
+      onChange={(e) => addTodo(e)}
       onKeyDown={(e) => addTodo(e)}
     />
   );
 };
 
 InputTodoComponent.propTypes = {
-  todo: PropTypes.string.isRequired,
   arrayTodo: PropTypes.arrayOf(PropTypes.object).isRequired,
-  setTodo: PropTypes.func.isRequired,
   addTodo: PropTypes.func.isRequired,
+  todo: PropTypes.object.isRequired,
 };

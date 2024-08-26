@@ -5,14 +5,17 @@ import "./App.css";
 
 function App() {
   const {
+    todo,
     addTodo,
     arrayTodo,
     deleteTodo,
     setArrayTodo,
-    setTodo,
-    todo,
     isUpdating,
     setIsUpdating,
+    inputUpdating,
+    handleTaskUpdate,
+    hanldeDoneTodo,
+    setInputUpdating,
   } = useTodo();
 
   return (
@@ -20,29 +23,27 @@ function App() {
       <div className="container">
         <h1 className="title">Todo List</h1>
         <main className="container_todo">
-          <div className="container_todo">
-            <div className="container_todo">
-              <section className="main_container">
-                <article>
-                  <InputTodoComponent
-                    todo={todo}
-                    arrayTodo={arrayTodo}
-                    setTodo={setTodo}
-                    setArrayTodo={setArrayTodo}
-                    addTodo={addTodo}
-                  />
-                  <UlTodoComponent
-                    deleteTodo={deleteTodo}
-                    arrayTodo={arrayTodo}
-                    isUpdating={isUpdating}
-                    setIsUpdating={setIsUpdating}
-                    setArrayTodo={setArrayTodo}
-                  />
-                </article>
-                <footer className="items">{arrayTodo.length} items</footer>
-              </section>
-            </div>
-          </div>
+          <section className="main_container">
+            <article>
+              <InputTodoComponent
+                todo={todo}
+                arrayTodo={arrayTodo}
+                addTodo={addTodo}
+              />
+              <UlTodoComponent
+                deleteTodo={deleteTodo}
+                arrayTodo={arrayTodo}
+                isUpdating={isUpdating}
+                setIsUpdating={setIsUpdating}
+                setArrayTodo={setArrayTodo}
+                inputUpdating={inputUpdating}
+                handleTaskUpdate={handleTaskUpdate}
+                hanldeDoneTodo={hanldeDoneTodo}
+                setInputUpdating={setInputUpdating}
+              />
+            </article>
+            <footer className="items">{arrayTodo.length} items</footer>
+          </section>
         </main>
       </div>
     </>
